@@ -11,13 +11,16 @@ export default class FilterParams extends Component {
     }
 
     handleSubmit() {
-        const {loanSize, propertyType, occupancy, creditScore} = this.props
+        console.log('---- handleSubmit')
+        const {propertyType, occupancy} = this.props
+        const creditScore = Number(this.props.creditScore)
+        const loanSize = Number(this.props.loanSize)
 
         const configObject = {
-            ...loanSize && {loanSize: loanSize},
-            ...creditScore && {creditScore: creditScore},
-            ...propertyType && {propertyType: propertyType},
-            ...occupancy && {occupancy: occupancy}
+            loanSize,
+            creditScore,
+            propertyType,
+            occupancy
         }
 
         this.props.getLenders(configObject)
@@ -34,7 +37,7 @@ export default class FilterParams extends Component {
                 <SelectComponent name="occupancy" value={occupancy} options={OCCUPANCY_OPTIONS} editField={editField}/>
 
                 <div>
-                    <button onClick={this.handleSubmit}/>
+                    <button onClick={this.handleSubmit}>Quote Rates</button>
                 </div>
             </div>
         )

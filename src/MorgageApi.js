@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_KEY = process.env.API_KEY
+const API_KEY = process.env.REACT_APP_API_KEY
 const axiosConfig = {
     baseURL: 'https://ss6b2ke2ca.execute-api.us-east-1.amazonaws.com/Prod/ratequotes',
     headers: {
@@ -11,7 +11,7 @@ const axiosInstance = axios.create(axiosConfig);
 
 export const getLenders = (configObj) => {
     let config = {
-        method: 'get',
+        method: 'post',
         data: configObj
     }
 
@@ -20,10 +20,8 @@ export const getLenders = (configObj) => {
 
 export const getRates = (requestId) => {
     let config = {
-        method: 'post',
-        data: {
-            requestId
-        }
+        method: 'get',
+        params: {requestId}
     }
 
     return axiosInstance.request(config)
