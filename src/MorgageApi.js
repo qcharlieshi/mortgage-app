@@ -9,15 +9,10 @@ const axiosConfig = {
 }
 const axiosInstance = axios.create(axiosConfig);
 
-export const getLenders = ({loanSize, creditScore, propertyType, occupancy}) => {
+export const getLenders = (configObj) => {
     let config = {
         method: 'get',
-        data: {
-            ...loanSize && {loanSize: loanSize},
-            ...creditScore && {creditScore: creditScore},
-            ...propertyType && {propertyType: propertyType},
-            ...occupancy && {occupancy: occupancy}
-        }
+        data: configObj
     }
 
     return axiosInstance.request(config)

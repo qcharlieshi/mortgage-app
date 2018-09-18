@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {toRegularCase} from "../utils";
 
 export default class InputComponent extends Component {
     constructor(props) {
@@ -9,16 +10,21 @@ export default class InputComponent extends Component {
 
     handleOnChange(e) {
         const newValue = e.target.value
-        // this.props.editField();
+        this.props.editField(this.props.name, newValue);
     }
 
     render() {
-        const {value} = this.props;
+        const {value, name} = this.props;
+        const displayName = toRegularCase(name)
 
         return (
-            <input
-                value={value}
-            />
+            <span>
+                <label>{displayName}</label>
+                <input
+                    value={value}
+                    onChange={this.handleOnChange}
+                />
+            </span>
         )
     }
 }

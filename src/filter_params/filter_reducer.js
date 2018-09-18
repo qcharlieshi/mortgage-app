@@ -1,16 +1,22 @@
 import ActionConstants from './filter_actions_constants'
+import {OCCUPANCY_OPTIONS, PROPERTY_OPTIONS} from "./selection_constants";
 
 const initialState = {
     loanSize: 0,
     creditScore: 700,
-    propertyType:
-    - occupancy
+    propertyType: PROPERTY_OPTIONS[0],
+    occupancy: OCCUPANCY_OPTIONS[0]
 }
 
 export default (state = initialState, action) => {
     switch(action.type) {
         case ActionConstants.EDIT_FIELD:
-            return state
+            const newState = {
+                ...state,
+                [action.name]: action.value
+            }
+
+            return newState
         default:
             return state
     }
