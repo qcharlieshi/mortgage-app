@@ -9,17 +9,31 @@ export const getLenders = (configObj) => {
                 const requestId = resp.data.requestId
                 console.log('---- getLenders', resp, requestId)
 
-                return morgageApi.getRates(requestId)
-            })
-            .then(resp => {
-                console.log('---- getRates', resp)
-
-                const lenderList = resp.data.rateQuotes
-                loadLenderRates(lenderList)
+                getRates(requestId)
             })
             .catch(err => {
                 console.log('ERROR: ', err)
             })
+    }
+}
+
+export const getRates = (requestId) => {
+    let finished = false;
+
+    return(dispatch) => {
+        while(!finished) {
+            morgageApi.getRates(requestId)
+                .then(resp => {
+                    if (!resp.done) return
+
+                    console.log('---- getRates', resp)
+                    const lenderList = resp.data.rateQuotes
+                    loadLenderRates(lenderList)
+                })
+                .catch(err => {
+                    console.log('ERROR: ', err)
+                })
+        }
     }
 }
 
