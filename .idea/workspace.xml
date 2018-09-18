@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0e3a454-c5a1-498e-b743-ce285d0171ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MorgageApi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/InputComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SelectComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/filter_params/FilterParams.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/filter_params/FilterParamsContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/filter_params/filter_actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/filter_params/filter_actions_constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/filter_params/filter_reducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lender_table/LenderTable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lender_table/LenderTableContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lender_table/lender_reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MorgageApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/MorgageApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filter_params/filter_actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/filter_params/filter_actions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filter_params/filter_actions_constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/filter_params/filter_actions_constants.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -51,14 +42,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="app_env" value="1" />
-          <entry key="js" value="1130" />
+          <entry key="js" value="2088" />
           <entry key="json" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="3" />
-          <entry key="JavaScript" value="1130" />
+          <entry key="JavaScript" value="2088" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
@@ -119,16 +110,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MorgageApi.js">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/filter_params/filter_actions_constants.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="42">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+              <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -145,9 +140,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/filter_params/filter_actions.js">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="7" column="52" lean-forward="true" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
+              <folding>
+                <element signature="e#0#56#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -176,14 +178,14 @@
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/InputComponent.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/filter_params/filter_actions.js" />
         <option value="$PROJECT_DIR$/src/Store.js" />
         <option value="$PROJECT_DIR$/src/lender_table/lender_reducer.js" />
         <option value="$PROJECT_DIR$/src/filter_params/FilterParamsContainer.js" />
-        <option value="$PROJECT_DIR$/src/filter_params/filter_actions_constants.js" />
         <option value="$PROJECT_DIR$/src/filter_params/filter_reducer.js" />
         <option value="$PROJECT_DIR$/app_env" />
         <option value="$PROJECT_DIR$/src/MorgageApi.js" />
+        <option value="$PROJECT_DIR$/src/filter_params/filter_actions_constants.js" />
+        <option value="$PROJECT_DIR$/src/filter_params/filter_actions.js" />
       </list>
     </option>
   </component>
@@ -294,12 +296,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1537147245620</updated>
-      <workItem from="1537147247025" duration="3688000" />
+      <workItem from="1537147247025" duration="5430000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3688000" />
+    <option name="totallyTimeSpent" value="5430000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="30" y="23" width="1650" height="1023" extended-state="0" />
@@ -418,26 +420,6 @@
     <entry file="file://$PROJECT_DIR$/src/lender_table/lender_reducer.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/filter_params/FilterParamsContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/filter_params/filter_actions.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/filter_params/filter_actions_constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/filter_params/filter_reducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -453,7 +435,38 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MorgageApi.js">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/filter_params/FilterParamsContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/filter_params/filter_actions_constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/filter_params/filter_actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="52" lean-forward="true" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
