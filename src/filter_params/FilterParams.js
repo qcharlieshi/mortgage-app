@@ -30,13 +30,13 @@ export default class FilterParams extends Component {
         const {loanSize, propertyType, occupancy, creditScore, editField} = this.props
 
         return (
-            <div>
+            <div className="filter-params">
                 <InputComponent name="loanSize" value={loanSize} editField={editField} />
                 <InputComponent name="creditScore" value={creditScore} editField={editField} />
                 <SelectComponent name="propertyType" value={propertyType} options={PROPERTY_OPTIONS} editField={editField}/>
                 <SelectComponent name="occupancy" value={occupancy} options={OCCUPANCY_OPTIONS} editField={editField}/>
 
-                <div>
+                <div className="filter-button">
                     <button onClick={this.handleSubmit}>Quote Rates</button>
                 </div>
             </div>
