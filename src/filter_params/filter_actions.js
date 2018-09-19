@@ -1,13 +1,14 @@
 import ActionConstants from '../action_constants'
 import * as morgageApi from '../morgage_api'
-import {loadLenderRates} from "../lender_table/lender_actions";
+import {loadLenderRates, toggleLoad} from "../lender_table/lender_actions";
 
 export const getLenders = (configObj) => {
     return(dispatch) => {
+        dispatch(toggleLoad())
+
         morgageApi.fetchLenders(configObj)
             .then(resp => {
                 const requestId = resp.data.requestId
-                console.log('---- fetchLenders', resp, requestId)
 
                 dispatch(getRates(requestId))
             })
@@ -18,19 +19,20 @@ export const getLenders = (configObj) => {
 }
 
 export const getRates = (requestId) => {
-    let finished = false;
-
     return(dispatch) => {
         morgageApi.fetchRates(requestId)
             .then(resp => {
                 const lenderList = resp.data.rateQuotes
+                const done = resp.data.done
 
-                if (!resp.data.done) { //!lenderList.length
+                if (!resp.data.done) {
                     console.log('---- getRates again')
-                    dispatch(getRates(requestId));
+                    //Timeout to prevent spamming the api
+                    setTimeout(() => { dispatch(getRates(requestId)) }, 1000)
+                    //return //adding this return will make it so the whole thing loads at once
                 }
 
-                dispatch(loadLenderRates(lenderList))
+                dispatch(loadLenderRates(lenderList, done))
             })
             .catch(err => {
                 console.log('ERROR: ', err)

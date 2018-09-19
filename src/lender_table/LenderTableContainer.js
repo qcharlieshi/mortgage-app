@@ -3,7 +3,8 @@ import LenderTable from './LenderTable'
 
 const mapStateToProps = (state) => {
     return {
-        lenders: state.lenderTable.lenders
+        lenders: state.lenderTable.lenders,
+        done: state.lenderTable.done
     }
 }
 

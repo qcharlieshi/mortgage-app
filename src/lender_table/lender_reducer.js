@@ -1,7 +1,8 @@
 import ActionConstants from '../action_constants'
 
 const initialState = {
-    lenders: []
+    lenders: [],
+    done: true
 }
 
 export default (state = initialState, action) => {
@@ -13,6 +14,11 @@ export default (state = initialState, action) => {
             }
 
             return newState
+        case ActionConstants.TOGGLE_LOAD:
+            return {
+                ...state,
+                done: !state.done
+            }
         default:
             return state
     }
