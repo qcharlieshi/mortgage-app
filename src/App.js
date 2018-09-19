@@ -9,9 +9,12 @@ class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <div className="main">
-                    <FilterParamsContainer/>
-                    <LenderTableContainer/>
+                <div>
+                    <div className="logo-section"><img src="logo.png" /></div>
+                    <div className="main">
+                        <FilterParamsContainer/>
+                        <LenderTableContainer/>
+                    </div>
                 </div>
             </Provider>
         );

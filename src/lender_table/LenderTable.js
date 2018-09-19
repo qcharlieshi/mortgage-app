@@ -19,15 +19,16 @@ export default class LenderTable extends Component {
 
     generateTableRow(lenderData, idx) {
         const {lenderName, loanType, interestRate, closingCosts, monthlyPayment, apr} = lenderData
+        const roundedAPR = Math.round(apr * 100) / 100
 
         return (
             <tr key={idx}>
                 <td>{lenderName}</td>
                 <td>{loanType}</td>
-                <td>{interestRate}</td>
-                <td>{closingCosts}</td>
-                <td>{monthlyPayment}</td>
-                <td>{apr}</td>
+                <td>{interestRate}%</td>
+                <td>${closingCosts}</td>
+                <td>${monthlyPayment}</td>
+                <td>{roundedAPR}%</td>
             </tr>
         )
     }
