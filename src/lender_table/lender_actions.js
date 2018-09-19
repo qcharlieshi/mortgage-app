@@ -1,4 +1,4 @@
-import ActionConstants from "../filter_params/filter_actions_constants";
+import ActionConstants from "../action_constants";
 
 export const loadLenderRates = (lenders) => {
     return (dispatch) => {

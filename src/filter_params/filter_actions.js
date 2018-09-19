@@ -1,5 +1,5 @@
-import ActionConstants from './filter_actions_constants'
-import * as morgageApi from '../MorgageApi'
+import ActionConstants from '../action_constants'
+import * as morgageApi from '../morgage_api'
 import {loadLenderRates} from "../lender_table/lender_actions";
 
 export const getLenders = (configObj) => {
@@ -25,11 +25,11 @@ export const getRates = (requestId) => {
             .then(resp => {
                 const lenderList = resp.data.rateQuotes
 
-                if (!lenderList.length) {
+                if (!resp.data.done) { //!lenderList.length
+                    console.log('---- getRates again')
                     dispatch(getRates(requestId));
                 }
 
-                finished = true
                 dispatch(loadLenderRates(lenderList))
             })
             .catch(err => {

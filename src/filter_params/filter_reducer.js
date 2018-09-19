@@ -1,4 +1,4 @@
-import ActionConstants from './filter_actions_constants'
+import ActionConstants from '../action_constants'
 import {OCCUPANCY_OPTIONS, PROPERTY_OPTIONS} from "./selection_constants";
 
 const initialState = {
