@@ -9,7 +9,7 @@ const axiosConfig = {
 }
 const axiosInstance = axios.create(axiosConfig);
 
-export const getLenders = (configObj) => {
+export const fetchLenders = (configObj) => {
     let config = {
         method: 'post',
         data: configObj
@@ -18,7 +18,7 @@ export const getLenders = (configObj) => {
     return axiosInstance.request(config)
 }
 
-export const getRates = (requestId) => {
+export const fetchRates = (requestId) => {
     let config = {
         method: 'get',
         params: {requestId}

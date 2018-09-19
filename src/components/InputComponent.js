@@ -18,8 +18,8 @@ export default class InputComponent extends Component {
         const displayName = toRegularCase(name)
 
         return (
-            <span>
-                <label>{displayName}</label>
+            <span className="field">
+                <label>{displayName}:</label>
                 <input
                     value={value}
                     onChange={this.handleOnChange}

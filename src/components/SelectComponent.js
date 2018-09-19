@@ -19,8 +19,8 @@ export default class SelectComponent extends Component {
         const displayName = toRegularCase(name)
 
         return (
-            <span>
-                <label>{displayName}</label>
+            <span className="field">
+                <label>{displayName}:</label>
                 <select
                     value={value}
                     onChange={this.handleOnChange}

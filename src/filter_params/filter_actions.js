@@ -4,12 +4,12 @@ import {loadLenderRates} from "../lender_table/lender_actions";
 
 export const getLenders = (configObj) => {
     return(dispatch) => {
-        morgageApi.getLenders(configObj)
+        morgageApi.fetchLenders(configObj)
             .then(resp => {
                 const requestId = resp.data.requestId
-                console.log('---- getLenders', resp, requestId)
+                console.log('---- fetchLenders', resp, requestId)
 
-                getRates(requestId)
+                dispatch(getRates(requestId))
             })
             .catch(err => {
                 console.log('ERROR: ', err)
@@ -21,19 +21,20 @@ export const getRates = (requestId) => {
     let finished = false;
 
     return(dispatch) => {
-        while(!finished) {
-            morgageApi.getRates(requestId)
-                .then(resp => {
-                    if (!resp.done) return
+        morgageApi.fetchRates(requestId)
+            .then(resp => {
+                const lenderList = resp.data.rateQuotes
 
-                    console.log('---- getRates', resp)
-                    const lenderList = resp.data.rateQuotes
-                    loadLenderRates(lenderList)
-                })
-                .catch(err => {
-                    console.log('ERROR: ', err)
-                })
-        }
+                if (!lenderList.length) {
+                    dispatch(getRates(requestId));
+                }
+
+                finished = true
+                dispatch(loadLenderRates(lenderList))
+            })
+            .catch(err => {
+                console.log('ERROR: ', err)
+            })
     }
 }
 
