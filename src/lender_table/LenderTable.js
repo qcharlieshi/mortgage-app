@@ -37,7 +37,7 @@ export default class LenderTable extends Component {
         return (
             <div style={{marginTop: '20px'}}>
                 {
-                    !this.props.done ? <div><img src="public/loading.gif" /></div> : null
+                    !this.props.done ? <div><img className="loading" src="loading.svg" /></div> : null
                 }
                 <table>
                     <thead>
