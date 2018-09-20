@@ -13,5 +13,5 @@ test('Can load lenders', () => {
         done: false
     }
 
-    expect(reducer({}, loadAction).toEqual({"lenders": ["test", "test", "test"]})
+    expect(reducer({}, loadAction)).toEqual({"lenders": ["test", "test", "test"]})
 })
