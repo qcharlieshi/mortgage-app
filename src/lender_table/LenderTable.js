@@ -33,7 +33,7 @@ export default class LenderTable extends Component {
         )
     }
     render() {
-        console.log('---- render LenderTable', this.props.lenders)
+        const hasLenders = this.props.lenders.length > 0
 
         return (
             <div style={{marginTop: '20px'}}>
@@ -52,12 +52,13 @@ export default class LenderTable extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        { this.props.lenders.length ?
-                            this.props.lenders.map(this.generateTableRow) :
-                            <tr><td>{NO_RESULTS}</td></tr>
+                        { hasLenders ?
+                            this.props.lenders.map(this.generateTableRow) : null
                         }
                     </tbody>
                 </table>
+
+                <span className="no-results">{!hasLenders ? NO_RESULTS : null}</span>
             </div>
         )
     }
