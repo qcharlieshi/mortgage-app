@@ -1,7 +1,7 @@
 import ActionConstants from '../action_constants'
 import {OCCUPANCY_OPTIONS, PROPERTY_OPTIONS} from "./selection_constants";
 
-const initialState = {
+export const initialState = {
     loanSize: 0,
     creditScore: 700,
     propertyType: PROPERTY_OPTIONS[0],

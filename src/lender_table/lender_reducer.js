@@ -1,6 +1,6 @@
 import ActionConstants from '../action_constants'
 
-const initialState = {
+export const initialState = {
     lenders: [],
     done: true
 }
