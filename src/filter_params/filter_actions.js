@@ -5,6 +5,8 @@ import {loadLenderRates, toggleLoad} from "../lender_table/lender_actions";
 export const getLenders = (configObj) => {
     return(dispatch) => {
         dispatch(toggleLoad())
+        //Always display no messages when button is clicked
+        dispatch(displayError([]))
 
         morgageApi.fetchLenders(configObj)
             .then(resp => {
@@ -13,8 +15,8 @@ export const getLenders = (configObj) => {
                 dispatch(getRates(requestId))
             })
             .catch(err => {
-                const errMessage = err.response ? err.response.data.errors : [err.message]
-                dispatch(displayError(errMessage))
+                dispatch(toggleLoad())
+                dispatch(displayError(getErrors(err)))
             })
     }
 }
@@ -27,7 +29,6 @@ export const getRates = (requestId) => {
                 const done = resp.data.done
 
                 if (!resp.data.done) {
-                    console.log('---- getRates again')
                     //Timeout to prevent spamming the api
                     setTimeout(() => { dispatch(getRates(requestId)) }, 1000)
                     //return //adding this return will make it so the whole thing loads at once
@@ -36,7 +37,8 @@ export const getRates = (requestId) => {
                 dispatch(loadLenderRates(lenderList, done))
             })
             .catch(err => {
-                console.log('ERROR: ', err)
+                dispatch(toggleLoad())
+                dispatch(displayError(getErrors(err)))
             })
     }
 }
@@ -58,4 +60,10 @@ export const displayError = (err) => {
             errorMessage: err
         })
     }
+}
+
+//HELPERS
+
+const getErrors = (err) => {
+    return err.response ? err.response.data.errors : [err.message]
 }

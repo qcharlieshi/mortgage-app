@@ -58,6 +58,11 @@
     width: 300px;
 }
 
+.filter-button button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
 input {
     width: 200px;
     border-radius: 3px;
@@ -139,15 +144,18 @@ tr:hover {
     z-index: 20;
     background-color: red;
     overflow: hidden;
+    left: 45%;
 }
 
 .error-box .header {
     border-bottom: 1px solid black;
-    position: absolute;
-    width: 100%;
+    position: relative;
+    width: 105%;
     margin-left: -10px;
     background-color: white;
+    padding: 5px;
     top: -10px;
+    font-weight: 600;
 }
 
 .error-box ul {

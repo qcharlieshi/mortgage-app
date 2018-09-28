@@ -9,10 +9,12 @@ export default class FilterParams extends Component {
         super(props);
 
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleClose = this.handleClose.bind(this)
     }
 
     handleClose(e) {
-
+        console.log('---- props', this.props)
+        this.props.displayError([])
     }
 
     handleSubmit() {
@@ -31,21 +33,23 @@ export default class FilterParams extends Component {
     }
 
     render() {
-        const {loanSize, propertyType, occupancy, creditScore, editField, errors} = this.props
+        const {loanSize, propertyType, occupancy, creditScore, editField, errors, done} = this.props
         const hasErrors = errors.length
 
         return (
-            <div className="filter-params">
+            <div>
                 {
                     hasErrors ? <ErrorModalComponent errors={errors} handleClose={this.handleClose} /> : null
                 }
-                <InputComponent name="loanSize" value={loanSize} editField={editField} />
-                <InputComponent name="creditScore" value={creditScore} editField={editField} />
-                <SelectComponent name="propertyType" value={propertyType} options={PROPERTY_OPTIONS} editField={editField}/>
-                <SelectComponent name="occupancy" value={occupancy} options={OCCUPANCY_OPTIONS} editField={editField}/>
+                <div className="filter-params">
+                    <InputComponent name="loanSize" value={loanSize} editField={editField} />
+                    <InputComponent name="creditScore" value={creditScore} editField={editField} />
+                    <SelectComponent name="propertyType" value={propertyType} options={PROPERTY_OPTIONS} editField={editField}/>
+                    <SelectComponent name="occupancy" value={occupancy} options={OCCUPANCY_OPTIONS} editField={editField}/>
 
-                <div className="filter-button">
-                    <button onClick={this.handleSubmit}>Quote Rates</button>
+                    <div className="filter-button">
+                        <button disabled={!done} onClick={this.handleSubmit}>Quote Rates</button>
+                    </div>
                 </div>
             </div>
         )
