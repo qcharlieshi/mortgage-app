@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
         loanSize: state.filter.loanSize,
         creditScore: state.filter.creditScore,
         propertyType: state.filter.propertyType,
-        occupancy: state.filter.occupancy
+        occupancy: state.filter.occupancy,
+        errors: state.filter.errors
     }
 }
 

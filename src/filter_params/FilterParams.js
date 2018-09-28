@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import InputComponent from '../components/InputComponent'
 import SelectComponent from '../components/SelectComponent'
+import ErrorModalComponent from '../components/ErrorModalComponent'
 import {OCCUPANCY_OPTIONS, PROPERTY_OPTIONS} from "./selection_constants";
 
 export default class FilterParams extends Component {
@@ -10,8 +11,11 @@ export default class FilterParams extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    handleClose(e) {
+
+    }
+
     handleSubmit() {
-        console.log('---- handleSubmit')
         const {propertyType, occupancy} = this.props
         const creditScore = Number(this.props.creditScore)
         const loanSize = Number(this.props.loanSize)
@@ -27,10 +31,14 @@ export default class FilterParams extends Component {
     }
 
     render() {
-        const {loanSize, propertyType, occupancy, creditScore, editField} = this.props
+        const {loanSize, propertyType, occupancy, creditScore, editField, errors} = this.props
+        const hasErrors = errors.length
 
         return (
             <div className="filter-params">
+                {
+                    hasErrors ? <ErrorModalComponent errors={errors} handleClose={this.handleClose} /> : null
+                }
                 <InputComponent name="loanSize" value={loanSize} editField={editField} />
                 <InputComponent name="creditScore" value={creditScore} editField={editField} />
                 <SelectComponent name="propertyType" value={propertyType} options={PROPERTY_OPTIONS} editField={editField}/>

@@ -5,18 +5,22 @@ export const initialState = {
     loanSize: 0,
     creditScore: 700,
     propertyType: PROPERTY_OPTIONS[0],
-    occupancy: OCCUPANCY_OPTIONS[0]
+    occupancy: OCCUPANCY_OPTIONS[0],
+    errors: []
 }
 
 export default (state = initialState, action) => {
     switch(action.type) {
         case ActionConstants.EDIT_FIELD:
-            const newState = {
+            return {
                 ...state,
                 [action.name]: action.value
             }
-
-            return newState
+        case ActionConstants.DISPLAY_ERROR:
+            return {
+                ...state,
+                errors: action.errorMessage
+            }
         default:
             return state
     }

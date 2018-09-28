@@ -13,7 +13,7 @@ export const getLenders = (configObj) => {
                 dispatch(getRates(requestId))
             })
             .catch(err => {
-                console.log('ERROR: ', err)
+                dispatch(displayError(err.response.data.errors))
             })
     }
 }
@@ -46,6 +46,15 @@ export const editField = (fieldName, value) => {
             type: ActionConstants.EDIT_FIELD,
             name: fieldName,
             value: value
+        })
+    }
+}
+
+export const displayError = (err) => {
+    return (dispatch) => {
+        dispatch({
+            type: ActionConstants.DISPLAY_ERROR,
+            errorMessage: err
         })
     }
 }
