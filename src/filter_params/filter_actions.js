@@ -13,7 +13,8 @@ export const getLenders = (configObj) => {
                 dispatch(getRates(requestId))
             })
             .catch(err => {
-                dispatch(displayError(err.response.data.errors))
+                const errMessage = err.response ? err.response.data.errors : [err.message]
+                dispatch(displayError(errMessage))
             })
     }
 }
